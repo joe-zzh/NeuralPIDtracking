@@ -29,7 +29,7 @@ NeuralPID.kcoef=4
 # y = alt*np.sin(omega*x)
 # ref = np.column_stack((x, y, np.mod(alt*omega*np.cos(omega*x), 2*np.pi)))
 # wheellengh = 0.2
-# NeuralPID.kcoef=1.5
+# NeuralPID.kcoef=1.6
 
 all_robx=[]
 all_roby=[]
