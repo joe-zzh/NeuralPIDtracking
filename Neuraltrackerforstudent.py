@@ -18,9 +18,9 @@ Ki=0.1
 Kd=5
 NeuralPID = NeuralPID(Kp,Ki,Kd)
 NeuralPID.kcoef=4
-#自定义轨迹
+# 自定义轨迹
 # Kp=1
-# Ki=0.12
+# Ki=0.15
 # Kd=5
 # NeuralPID = NeuralPID(Kp,Ki,Kd)
 # x = np.linspace(-4*np.pi, 4*np.pi, 100)
@@ -38,10 +38,10 @@ rob.set_noise(0.01, 0.01)
 init_x = random.uniform(-6, 6)
 init_y = random.uniform(-10, 10)
 init_theta=random.uniform(-np.pi,np.pi)
-rob.set(ref[0,0],ref[0,1],0)
-# rob.set(init_x,init_y,init_theta)
-
-for i in range(140):
+# rob.set(init_x,init_y,0)
+start = [x[1]+0.3,y[1] +0.3,alt*omega*np.cos(omega*x[1])]# 设定起点
+rob.set(start[0],start[1],start[2])
+for i in range(400):
     robot_state = np.zeros(2)
     ind = cal_target_index([rob.x,rob.y],ref[:,[0,1]])
     alpha = np.arctan2(ref[ind, 1]-rob.y, ref[ind, 0]-rob.x)
