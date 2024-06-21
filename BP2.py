@@ -53,8 +53,8 @@ class NeuralPID:
             self.result=self.min
         return self.result
     def neural_learning_rules(self, zk, uk, xi):
-        self.wi = self.wi + self.ki * zk * uk * xi[0]
-        self.wp = self.wp + self.kp * zk * uk * xi[1]
+        self.wp = self.wp + self.kp * zk * uk * xi[0]
+        self.wi = self.wi + self.ki * zk * uk * xi[1]
         self.wd = self.wd + self.kd * zk * uk * xi[2]
 
 
